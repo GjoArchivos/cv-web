@@ -4,6 +4,8 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Data
 public class ExperienceDTO {
 
@@ -11,7 +13,9 @@ public class ExperienceDTO {
     private String company;
     private String position;
     private String description;
+    @JsonProperty("start_date")
     private LocalDate startDate;
+    @JsonProperty("end_date")
     private LocalDate endDate;
 
     private List<String> activities;

@@ -15,7 +15,7 @@ public class UserProfileMapper {
         try {
             return objectMapper.readValue(json, UserProfileResponseDTO.class);
         } catch (Exception e) {
-            throw new RuntimeException("Error mapping JSON to DTO", e);
+            throw new RuntimeException("Error mapping JSON", e);
         }
     }
 }
