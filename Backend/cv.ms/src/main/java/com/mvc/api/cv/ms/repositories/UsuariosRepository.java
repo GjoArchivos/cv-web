@@ -1,7 +1,11 @@
 package com.mvc.api.cv.ms.repositories;
 
-public interface UsuariosRepository {
 
-	Object findById(Long profileId);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.mvc.api.cv.ms.dtos.UsuariosDTO;
+
+public interface UsuariosRepository extends JpaRepository<UsuariosDTO, Long> {
+
 
 }

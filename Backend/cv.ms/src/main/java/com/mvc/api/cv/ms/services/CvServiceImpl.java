@@ -10,25 +10,28 @@ import com.mvc.api.cv.ms.repositories.EducacionRepository;
 import com.mvc.api.cv.ms.repositories.ExperienciasRepository;
 import com.mvc.api.cv.ms.repositories.UsuariosRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CvServiceImpl implements CvService{
 
     private final UsuariosRepository usuariosRepo;
-    private final ExperienciasRepository experienciasRepo;
-    private final EducacionRepository educacionRepo;
-    private final CursosRepository cursosRepo;
-    private final CertificacionesRepository certificacionesRepo;
+	private final ExperienciasRepository experienciasRepo;
+	private final EducacionRepository educacionRepo;
+	private final CursosRepository cursosRepo;
+	private final CertificacionesRepository certificacionesRepo;
 
     @Override
     public CvResponseDTO getCv( Long profileId) {
 
 
         UsuariosDTO profile = usuariosRepo.findById(profileId)
-                .orElseThrow(() -> new RuntimeException("Profile not found"));
+                .orElseThrow(() -> new RuntimeException("perfil no encontrado"));
 
         CvResponseDTO response = new CvResponseDTO();
 
-        response.setId(profile.getId());
+        response.setId(profile.getUserId());
         response.setFullName(profile.getFullName());
         response.setEmail(profile.getEmail());
         response.setPhone(profile.getPhone());
@@ -37,19 +40,16 @@ public class CvServiceImpl implements CvService{
         response.setPortfolioUrl(profile.getPortfolioUrl());
 
         response.setExperiences(
-                experienceRepository.findByProfileId(profileId)
+        		experienciasRepo.findByProfileId(profileId)
         );
-
         response.setEducation(
-                educationRepository.findByProfileId(profileId)
+        		educacionRepo.findByProfileId(profileId)
         );
-
         response.setCourses(
-                courseRepository.findByProfileId(profileId)
+        		cursosRepo.findByProfileId(profileId)
         );
-
         response.setCertifications(
-                certificationRepository.findByProfileId(profileId)
+        		certificacionesRepo.findByProfileId(profileId)
         );
 
         return response;
