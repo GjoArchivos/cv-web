@@ -2,10 +2,10 @@ package com.mvc.api.cv.ms.repositories;
 
 import java.util.List;
 
-import com.mvc.api.cv.ms.dtos.CursosDTO;
+import com.mvc.api.cv.ms.entities.Cursos;
 
 public interface CursosRepository {
 
-	List<CursosDTO> findByProfileId(Long profileId);
+	List<Cursos> findByProfileId(Long profileId);
 
 }

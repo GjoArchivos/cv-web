@@ -2,10 +2,10 @@ package com.mvc.api.cv.ms.repositories;
 
 import java.util.List;
 
-import com.mvc.api.cv.ms.dtos.CertificacionesDTO;
+import com.mvc.api.cv.ms.entities.Certificaciones;
 
 public interface CertificacionesRepository {
 
-	List<CertificacionesDTO> findByProfileId(Long profileId);
+	List<Certificaciones> findByProfileId(Long profileId);
 
 }

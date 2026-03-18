@@ -2,10 +2,10 @@ package com.mvc.api.cv.ms.repositories;
 
 import java.util.List;
 
-import com.mvc.api.cv.ms.dtos.ExperienciasDTO;
+import com.mvc.api.cv.ms.entities.Experiencias;
 
 public interface ExperienciasRepository {
 
-	List<ExperienciasDTO> findByProfileId(Long profileId);
+	List<Experiencias> findByProfileId(Long profileId);
 
 }

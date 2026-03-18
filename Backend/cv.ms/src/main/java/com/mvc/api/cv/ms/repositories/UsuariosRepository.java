@@ -3,9 +3,9 @@ package com.mvc.api.cv.ms.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.mvc.api.cv.ms.dtos.UsuariosDTO;
+import com.mvc.api.cv.ms.entities.Usuarios;
 
-public interface UsuariosRepository extends JpaRepository<UsuariosDTO, Long> {
+public interface UsuariosRepository extends JpaRepository<Usuarios, Long> {
 
 
 }
