@@ -10,13 +10,11 @@ import com.mvc.api.cv.ms.entities.Experiencias;
 import com.mvc.api.cv.ms.entities.Perfiles;
 import com.mvc.api.cv.ms.entities.Usuarios;
 
-import jakarta.persistence.Entity;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class CvResponseDTO {
 
 	private Long id;

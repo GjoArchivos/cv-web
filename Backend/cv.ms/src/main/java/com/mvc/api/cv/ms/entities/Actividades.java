@@ -1,9 +1,5 @@
 package com.mvc.api.cv.ms.entities;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,26 +14,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="certifications")
-public class Certificaciones {
-
+@Table(name="activities")
+public class Actividades {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="certification_id")
-	private Long certificationId;
+	@Column(name="activity_id")
+	private Long activityId;
 	
-	private String issuer;
-    
-	private String title;
-    
-    @Column(name="end_date")
-    private LocalDate endDate;
-    
-    @Column(name="expiration_date")
-    private LocalDate expirationDate;
-    
+	private String description;
+	
+	// ManyToOne → Experiencias
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private Usuarios usuarios;
+    @JoinColumn(name = "experience_id")
+    private Experiencias experiencias;
+
 }
